@@ -1,6 +1,6 @@
 import Button from "../ui/Button";
 import TextInput from "../ui/TextInput";
-import UserCard from "@/app/components/commons/UserCard";
+import UserCard from "@/app/components/commons/user-card/UserCard";
 import TotalVisits from "@/app/components/commons/TotalVisits";
 import ProjectCard from "../commons/ProjectCard";
 
