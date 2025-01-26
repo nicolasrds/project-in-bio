@@ -1,6 +1,6 @@
 import Button from "@/app/components/ui/Button";
 import { auth } from "../lib/auth";
-import {manageAuth} from "@/app/actions/manage-auth";
+import {manageAuth} from "@/app/actions/manageAuth";
 
 
 export default async function Header() {
