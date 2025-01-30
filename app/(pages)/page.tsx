@@ -1,5 +1,5 @@
 import Hero from "@/app/components/landing-page/Hero";
-import Header from "@/app/components/Header";
+import Header from "@/app/components/landing-page/Header";
 import VideoExplanation from "@/app/components/landing-page/VideoExplanation";
 import Pricing from "@/app/components/landing-page/Princing";
 import FAQ from "@/app/components/landing-page/FAQ";

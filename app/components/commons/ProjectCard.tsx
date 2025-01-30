@@ -1,26 +1,35 @@
 "use client";
 
 import {ProjectData} from "@/app/actions/getProfileData";
+import { increaseProjectVisits } from "@/app/actions/increaseProjectVisits";
 import Link from "next/link";
+import {useParams} from "next/navigation";
 
 export default function ProjectCard({
                                         project,
                                         isOwner,
                                         img,
+                                        name,
+                                        description,
                                     }: {
-    project: ProjectData;
-    isOwner: boolean;
+    project?: ProjectData;
+    isOwner?: boolean;
     img: string;
+    name: string;
+    description: string;
 }) {
 
-    const projectUrl = project.projectUrl;
+    const { profileId } = useParams();
+
+    const projectUrl = project?.projectUrl || '';
 
     const formattedUrl = projectUrl.startsWith("http")
         ? projectUrl
         : `https://${projectUrl}`;
 
-    function handleClick() {
-        console.log("clicked"); // TODO: implementar analytics
+    async function handleClick() {
+        if (!profileId || !project?.id || isOwner) return;
+        await increaseProjectVisits(profileId as string, project.id);
     }
 
     return (
@@ -32,13 +41,13 @@ export default function ProjectCard({
                 <div className="flex flex-col gap-2">
                     {isOwner && (
                         <span className="uppercase text-xs font-bold text-accent-green">
-                          {project.totalVisits || 0} cliques
+                          {project?.totalVisits || 0} cliques
                         </span>
                                 )}
                     <div className="flex flex-col">
-                        <span className="text-white font-bold">{project.projectName}</span>
+                        <span className="text-white font-bold">{name || project?.projectName}</span>
                         <span className="text-content-body text-sm">
-                          {`${project.projectDescription.substring(0,95)}...`}
+                          {`${description || project?.projectDescription.substring(0,25)}...`}
                         </span>
                     </div>
                 </div>

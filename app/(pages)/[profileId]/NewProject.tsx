@@ -7,7 +7,7 @@ import TextInput from "@/app/components/ui/TextInput";
 import Button from "@/app/components/ui/Button";
 import TextArea from "@/app/components/ui/TextArea";
 import {useRouter} from "next/navigation";
-import {compressFiles} from "@/app/lib/utils";
+import {compressFiles, handleImageInput, triggerImageInput} from "@/app/lib/utils";
 import {createProject} from "@/app/actions/createProject";
 
 
@@ -25,18 +25,7 @@ export default function NewProject({ profileId }: { profileId: string }) {
         setIsOpen(true);
     };
 
-    function triggerImageInput(id: string) {
-        document.getElementById(id)?.click();
-    }
 
-    function handleImageInput(e: React.ChangeEvent<HTMLInputElement>) {
-        const file = e.target.files?.[0] ?? null;
-        if (file) {
-            const imageURL = URL.createObjectURL(file);
-            return imageURL;
-        }
-        return null;
-    }
     async function handleCreateProject() {
         setIsCreatingProject(true);
         const imagesInput = document.getElementById(
