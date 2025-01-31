@@ -10,25 +10,41 @@ import Button from "@/app/components/ui/Button";
 
 
 
-export default function AddCustomLink() {
+export default function AddCustomLink({links}: {
+    links?: {
+        link1?: {
+            title: string;
+            url: string;
+        },
+        link2?: {
+            title: string;
+            url: string;
+        },
+        link3?: {
+            title: string;
+            url: string;
+        }
+
+    }
+}) {
 
     const router = useRouter();
     const { profileId } = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSavingCustomLinks, setIsSavingCustomLinks] = useState(false);
     const [link1, setLink1] = useState({
-        title: "",
-        url: "",
+        title: links?.link1?.title || "",
+        url: links?.link1?.url || "",
     });
 
     const [link2, setLink2] = useState({
-        title: "",
-        url: "",
+        title: links?.link2?.title || "",
+        url: links?.link2?.url || "",
     });
 
     const [link3, setLink3] = useState({
-        title: "",
-        url: "",
+        title: links?.link3?.title || "",
+        url: links?.link3?.url || "",
     });
 
     const handleSaveCustomLinks = async () => {

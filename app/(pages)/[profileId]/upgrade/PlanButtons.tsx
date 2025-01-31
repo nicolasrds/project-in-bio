@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/app/components/ui/Button";
-import { useStripe } from "@/app/hooks/userStripe";
+import { useStripe } from "@/app/hooks/useStripe";
 import { useParams } from "next/navigation";
 
 export default function PlanButtons() {
