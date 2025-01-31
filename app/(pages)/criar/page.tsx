@@ -1,8 +1,14 @@
 import Header from "@/app/components/landing-page/Header";
 import { Rocket } from "lucide-react";
 import CreateLinkForm from "@/app/(pages)/criar/CreateLinkForm";
+import {trackServerEvent} from "@/app/lib/mixpanel";
 
 export default function CriarPage() {
+
+    trackServerEvent("page-view", {
+        page:"home"
+    })
+
     return (
         <div>
             <Header />
