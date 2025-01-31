@@ -4,7 +4,17 @@ import VideoExplanation from "@/app/components/landing-page/VideoExplanation";
 import Pricing from "@/app/components/landing-page/Princing";
 import FAQ from "@/app/components/landing-page/FAQ";
 import {trackServerEvent} from "@/app/lib/mixpanel";
+import {Metadata} from "next";
+import {getSEOTags} from "@/app/lib/seo";
 
+export const metadata: Metadata = getSEOTags({
+    appName: "ProjectInBio",
+    appDescription:
+        "ProjectInBio - Seus projetos e redes sociais em um único link",
+    keywords: ["ProjectInBio", "projetos", "redes sociais", "link"],
+    appDomain: "https://project-in-bio-eta.vercel.app",
+    canonicalUrlRelative: "/",
+});
 
 export default function Home() {
 
