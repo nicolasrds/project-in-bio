@@ -47,7 +47,7 @@ export default function ProjectCard({
                     <div className="flex flex-col">
                         <span className="text-white font-bold">{name || project?.projectName}</span>
                         <span className="text-content-body text-sm">
-                          {`${description || project?.projectDescription.substring(0,25)}...`}
+                          {`${description.substring(0,90)}...` || `${project?.projectDescription.substring(0,90)}...`}
                         </span>
                     </div>
                 </div>

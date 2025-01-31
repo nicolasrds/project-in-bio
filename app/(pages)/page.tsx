@@ -26,7 +26,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
           <Header />
           <Hero />
-          <VideoExplanation />
+          {/*<VideoExplanation /> */ }
           <Pricing />
           <FAQ />
       </div>
