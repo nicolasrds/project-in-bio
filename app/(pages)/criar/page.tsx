@@ -6,7 +6,7 @@ import {trackServerEvent} from "@/app/lib/mixpanel";
 export default function CriarPage() {
 
     trackServerEvent("page-view", {
-        page:"home"
+        page:"criar"
     })
 
     return (
