@@ -8,12 +8,19 @@ import {auth} from "@/app/lib/auth";
 import NewProject from "@/app/(pages)/[profileId]/NewProject";
 import { getDownloadURLFromPath } from "@/app/lib/firebase";
 import {increaseProfileVisits} from "@/app/actions/increaseProfileVisits";
+import {trackServerEvent} from "@/app/lib/mixpanel";
 
 export default async function ProfilePage({
                                               params,
                                           }: {
     params: Promise<{ profileId: string }>;
 }) {
+
+
+    trackServerEvent("page-view", {
+        page:"profile"
+    })
+
     const { profileId } = await params;
 
     const profileData = await getProfileData(profileId);
